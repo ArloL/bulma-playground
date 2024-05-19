@@ -1,21 +1,131 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
+<html class="has-navbar-fixed-top">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <style>
+    .navbar-brand .navbar-item {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-title {
+      flex-grow: 1;
+      text-align: center;
+    }
+    html.has-navbar-fixed-top {
+      scroll-padding-top: var(--bulma-navbar-height);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="px-4 navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#yesterday">🔙</a>
+      <span class="navbar-item navbar-title">
+        <strong>💃🏻🕺🏼 Chores</strong>
+      </span>
+      <a class="navbar-item" href="#today">⚙️</a>
     </div>
-  </section>
-  </body>
+  </nav>
+  <div class="m-4">
+    <h6 class="subtitle is-6" id="yesterday">Done in last week</h6>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title" disabled="disabled">
+          <label class="checkbox">
+            <input type="checkbox" checked="true" />&nbsp;
+            🧽 Wash dishes, 2 days ago
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title" disabled="disabled">
+          <label class="checkbox">
+            <input type="checkbox" checked="true" />&nbsp;
+            🧽 Wash dishes, 4 days ago
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+    <h6 class="subtitle is-6" id="today">I would like to do today</h6>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title">
+          <label class="checkbox">
+            <input type="checkbox" />&nbsp;
+            🧽 Wash dishes, today
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title">
+          <label class="checkbox">
+            <input type="checkbox" />&nbsp;
+            🤖 Vacuum, yesterday
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title">
+          <label class="checkbox">
+            <input type="checkbox" />&nbsp;
+            🛏️ Change sheets, 4 days ago
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title">
+          <label class="checkbox">
+            <input type="checkbox" />&nbsp;
+            📬 Check letterbox, 2 days ago
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <fieldset class="card-header-title">
+          <label class="checkbox">
+            <input type="checkbox" />&nbsp;
+            ❄️ Defrost freezer, 2 weeks ago
+          </label>
+        </fieldset>
+        <button class="card-header-icon" aria-label="more options">
+          …
+        </button>
+      </header>
+    </div>
+  </div>
+</body>
+
 </html>
