@@ -21,15 +21,13 @@
       text-align: center;
     }
 
-    .todos {
-      max-width: 25rem;
+    .is-strikethrough {
+      text-decoration: line-through;
     }
 
-    label {
-      max-width: 70vw;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    .todos {
+      min-width: 20rem;
+      max-width: 30rem;
     }
   </style>
 </head>
@@ -47,230 +45,227 @@
   </nav>
   <div class="todos m-4">
     <h5 class="title is-5" id="last-five-days">Last five days</h5>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" checked />
-            ❄️ Defrost freezer, 5 days ago
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light is-strikethrough">❄️ Defrost freezer, 5 days ago</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light is-strikethrough">🧽 Wash dishes, four days ago</p>
+      </div>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light is-strikethrough">🧽 Wash dishes, two days ago</p>
+      </div>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light is-strikethrough">🧺 Update momo, two days ago</p>
+      </div>
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" checked />
-            🧽 Wash dishes, four days ago
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light is-strikethrough">🛒 Buy stuff from DM, yesterday</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" checked />
-            🧽 Wash dishes, two days ago
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" checked />
-            🧺 Update momo, two days ago
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" checked />
-            🛒 Buy stuff from DM, yesterday
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
     </div>
     <h5 class="title is-5" id="today">Today</h5>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
-            🛏️ Change sheets, four days ago
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <label class="is-strikethrough">
+          <input type="checkbox" checked />
+          🛏️ Change sheets, four days ago
+        </label>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
-            📬 Check letterbox, two days ago
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
-            🤖 Vacuum, yesterday
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <label>
+          <input type="checkbox" />
+          🛏️ Change sheets, four days ago
+        </label>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
-            🚮 Bring out trash, yesterday
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
-            🧽 Wash dishes, today
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p>📬 Check letterbox, two days ago</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
-          …
-        </button>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              ✔️
+            </button>
+          </p>
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p>🤖 Vacuum, yesterday</p>
+      </div>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              ✔️
+            </button>
+          </p>
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p>🚮 Bring out trash, yesterday</p>
+      </div>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              ✔️
+            </button>
+          </p>
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p>🧽 Wash dishes, today</p>
+      </div>
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <button class="button" aria-label="more options">
+              ✔️
+            </button>
+          </p>
+          <p class="control">
+            <button class="button" aria-label="more options">
+              …
+            </button>
+          </p>
+        </div>
       </div>
     </div>
 
     <h5 class="title is-5" id="next-five-days">Next five days</h5>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" />
-            💸 Put out money for Betty, tomorrow
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light">💸 Put out money for Betty, tomorrow</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" />
-            🧺 Put out momo stuff, tomorrow
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light">🧺 Put out momo stuff, tomorrow</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" />
-            ‼️ 🗑️ Put out trash cans, in two days
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light">‼️ 🗑️ Put out trash cans, in two days</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" />
-            🧽 Wash dishes, in two days
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light">🧽 Wash dishes, in two days</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
     </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item" disabled>
-          <label class="checkbox">
-            <input type="checkbox" />
-            🧽 Wash dishes, in four days
-          </label>
-        </fieldset>
+    <div class="columns is-mobile is-vcentered">
+      <div class="column">
+        <p class="has-text-grey-light">🧽 Wash dishes, in four days</p>
       </div>
-      <div class="level-right">
-        <button class="button level-item" aria-label="more options">
+      <div class="column is-narrow">
+        <button class="button" aria-label="more options">
           …
         </button>
       </div>
