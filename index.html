@@ -7,6 +7,10 @@
   <title>Hello Bulma!</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <style>
+    html.has-navbar-fixed-top {
+      scroll-padding-top: var(--bulma-navbar-height);
+    }
+
     .navbar-brand .navbar-item {
       display: flex;
       align-items: center;
@@ -17,35 +21,39 @@
       text-align: center;
     }
 
-    html.has-navbar-fixed-top {
-      scroll-padding-top: var(--bulma-navbar-height);
+    label {
+      max-width: 70vw;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   </style>
 </head>
 
 <body>
-  <nav class="px-4 navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#yesterday">🔙</a>
       <span class="navbar-item navbar-title">
         <strong>💃🏻🕺🏼 Chores</strong>
       </span>
-      <a class="navbar-item" href="#today">⚙️</a>
+      <div class="navbar-item">
+        <a class="button is-primary" href="#today">Today</a>
+      </div>
     </div>
   </nav>
   <div class="m-4">
-    <h5 class="title is-5" id="yesterday">Last five days</h5>
+    <h5 class="title is-5" id="last-five-days">Last five days</h5>
     <div class="level is-mobile">
       <div class="level-left">
         <fieldset class="level-item" disabled>
           <label class="checkbox">
-            <input type="checkbox" checked/>
+            <input type="checkbox" checked />
             ❄️ Defrost freezer, 5 days ago
           </label>
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -54,13 +62,13 @@
       <div class="level-left">
         <fieldset class="level-item" disabled>
           <label class="checkbox">
-            <input type="checkbox" checked/>
+            <input type="checkbox" checked />
             🧽 Wash dishes, four days ago
           </label>
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -69,13 +77,13 @@
       <div class="level-left">
         <fieldset class="level-item" disabled>
           <label class="checkbox">
-            <input type="checkbox" checked/>
+            <input type="checkbox" checked />
             🧽 Wash dishes, two days ago
           </label>
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -84,13 +92,28 @@
       <div class="level-left">
         <fieldset class="level-item" disabled>
           <label class="checkbox">
-            <input type="checkbox" checked/>
+            <input type="checkbox" checked />
+            🧺 Update momo, two days ago
+          </label>
+        </fieldset>
+      </div>
+      <div class="level-right">
+        <button class="button level-item" aria-label="more options">
+          …
+        </button>
+      </div>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <fieldset class="level-item" disabled>
+          <label class="checkbox">
+            <input type="checkbox" checked />
             🛒 Buy stuff from DM, yesterday
           </label>
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -101,42 +124,12 @@
         <fieldset class="level-item">
           <label class="checkbox">
             <input type="checkbox" />
-            🧽 Wash dishes, today
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
-            🤖 Vacuum, yesterday
-          </label>
-        </fieldset>
-      </div>
-      <div class="level-right">
-        <button class="level-item" aria-label="more options">
-          …
-        </button>
-      </div>
-    </div>
-    <div class="level is-mobile">
-      <div class="level-left">
-        <fieldset class="level-item">
-          <label class="checkbox">
-            <input type="checkbox" />
             🛏️ Change sheets, four days ago
           </label>
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -151,13 +144,58 @@
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
+          …
+        </button>
+      </div>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <fieldset class="level-item">
+          <label class="checkbox">
+            <input type="checkbox" />
+            🤖 Vacuum, yesterday
+          </label>
+        </fieldset>
+      </div>
+      <div class="level-right">
+        <button class="button level-item" aria-label="more options">
+          …
+        </button>
+      </div>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <fieldset class="level-item">
+          <label class="checkbox">
+            <input type="checkbox" />
+            🚮 Bring out trash, yesterday
+          </label>
+        </fieldset>
+      </div>
+      <div class="level-right">
+        <button class="button level-item" aria-label="more options">
+          …
+        </button>
+      </div>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <fieldset class="level-item">
+          <label class="checkbox">
+            <input type="checkbox" />
+            🧽 Wash dishes, today
+          </label>
+        </fieldset>
+      </div>
+      <div class="level-right">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
     </div>
 
-    <h5 class="title is-5" id="next">Next five days</h5>
+    <h5 class="title is-5" id="next-five-days">Next five days</h5>
     <div class="level is-mobile">
       <div class="level-left">
         <fieldset class="level-item" disabled>
@@ -168,7 +206,7 @@
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -178,12 +216,27 @@
         <fieldset class="level-item" disabled>
           <label class="checkbox">
             <input type="checkbox" />
-            ‼️ 🚮 Put out trash cans, in two days
+            🧺 Put out momo stuff, tomorrow
           </label>
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
+          …
+        </button>
+      </div>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <fieldset class="level-item" disabled>
+          <label class="checkbox">
+            <input type="checkbox" />
+            ‼️ 🗑️ Put out trash cans, in two days
+          </label>
+        </fieldset>
+      </div>
+      <div class="level-right">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -198,7 +251,7 @@
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
@@ -213,12 +266,14 @@
         </fieldset>
       </div>
       <div class="level-right">
-        <button class="level-item" aria-label="more options">
+        <button class="button level-item" aria-label="more options">
           …
         </button>
       </div>
     </div>
   </div>
+  <div class="section"></div>
+  <div class="section"></div>
 </body>
 
 </html>
