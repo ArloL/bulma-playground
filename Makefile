@@ -2,4 +2,4 @@ build:
 	mkdir -p _site
 	cp index.html ./_site
 server:
-	python3 -m http.server -b localhost 51682
+	python3 -m http.server -b 127.0.0.1 51682
