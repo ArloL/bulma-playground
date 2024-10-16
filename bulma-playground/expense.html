@@ -65,9 +65,9 @@
       <button class="button">…</button>
     </div>
     <div class="buttons has-addons is-scrollable-x splits">
-      <button class="button is-success is-selected">50/50</button>
-      <button class="button">100/0</button>
-      <button class="button">0/100</button>
+      <button class="button is-success is-selected" data-split="50">50/50</button>
+      <button class="button" data-split="100">100/0</button>
+      <button class="button" data-split="0">0/100</button>
       <button class="button">…</button>
     </div>
     <table class="table is-fullwidth is-striped">
@@ -84,18 +84,76 @@
         </tr>
       </tbody>
     </table>
-    <button class="button is-large is-fullwidth is-success">💾</button>
+    <button class="button is-large is-fullwidth is-success" disabled>🍽️</button>
   </div>
   <script>
     (function () {
+      function cleanNumericInput(str) {
+        const commas = (str.match(/,/g) || []).length;
+        if (commas === 1) {
+          str = str.replace(',', '.');
+        } else if (commas > 1) {
+          str = str.replaceAll(',', '');
+        }
+        const dots = (str.match(/\./g) || []).length;
+        if (dots > 1) {
+          str = str.replace('.', '');
+        }
+        return str;
+      }
+
       var categories = document.querySelectorAll(".categories button");
       var splits = document.querySelectorAll(".splits button");
       var clickHandler = (e, others) => {
         others.forEach(btn => btn.classList.remove("is-selected", "is-success"));
         e.target.classList.add("is-selected", "is-success");
+        updateTableAndButton();
       };
       categories.forEach(btn => btn.addEventListener("click", (e) => clickHandler(e, categories)));
       splits.forEach(btn => btn.addEventListener("click", (e) => clickHandler(e, splits)));
+
+      var splitDetailsTable = document.querySelector("table");
+      var saveButton = document.querySelector(".button.is-fullwidth");
+      var amountInput = document.querySelector("input");
+      var currencySelect = document.querySelector("select");
+
+      function updateTableAndButton() {
+        var category = document.querySelector(".categories .is-selected").innerText;
+        var splitValue = document.querySelector(".splits .is-selected").dataset.split;
+        var total = Number
+          .parseFloat(
+            cleanNumericInput(amountInput.value)
+          );
+        if (total > 0) {
+          saveButton.removeAttribute("disabled");
+          saveButton.innerText = `${category} ${total.toFixed(2).toLocaleString()} ${currencySelect.value}`;
+
+          var part = Math.round(total / 100 * splitValue * 100) / 100;
+          var splits = [
+            {
+              "name": "Arlo",
+              "part": part
+            }, {
+              "name": "Roxy",
+              "part": total - part
+            }
+          ];
+          var splitDetailsInnerHtml = "<tbody>";
+          splits.forEach(split => {
+            splitDetailsInnerHtml += `
+            <tr>
+              <td>${split.name}</td>
+              <td>${split.part.toFixed(2).toLocaleString()} ${currencySelect.value}</td>
+            </tr>`;
+          })
+          splitDetailsInnerHtml += "</tbody>";
+          splitDetailsTable.innerHTML = splitDetailsInnerHtml;
+        } else {
+          saveButton.setAttribute("disabled", "disabled");
+          saveButton.innerText = `${category} … ${currencySelect.value}`;
+        }
+      }
+      amountInput.addEventListener("input", updateTableAndButton);
     })();
   </script>
 </body>
