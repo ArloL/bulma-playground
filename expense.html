@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <style>
+    :root {
+      /* Default global value */
+      --bulma-body-font-size: 1.25rem;
+      --bulma-size-normal: 1.25rem;
+    }
+    .scroll-container {
+      overflow-x: auto;
+    }
+    body {
+      margin: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="field">
+      <button class="delete is-large" aria-label="close"></button>
+    </div>
+    <div class="field has-addons">
+      <p class="control">
+        <span class="select">
+          <select>
+            <option>€</option>
+          </select>
+        </span>
+      </p>
+      <p class="control">
+        <input class="input" type="text" placeholder="0,00" inputmode="decimal">
+      </p>
+    </div>
+    <div class="field scroll-container">
+      <div class="field is-grouped categories">
+        <div class="control">
+          <button class="button is-active">🍽️</button>
+        </div>
+        <div class="control">
+          <button class="button">🥐</button>
+        </div>
+        <div class="control">
+          <button class="button">🛒</button>
+        </div>
+        <div class="control">
+          <button class="button">🚂</button>
+        </div>
+        <div class="control">
+          <button class="button">🎟️</button>
+        </div>
+        <div class="control">
+          <button class="button">🏨</button>
+        </div>
+        <div class="control">
+          <button class="button">🧽</button>
+        </div>
+        <div class="control">
+          <button class="button">🚗</button>
+        </div>
+        <div class="control">
+          <button class="button">🧴</button>
+        </div>
+        <div class="control">
+          <button class="button">🪑</button>
+        </div>
+        <div class="control">
+          <button class="button">…</button>
+        </div>
+      </div>
+    </div>
+    <div class="field scroll-container">
+      <div class="field is-grouped splits">
+        <div class="control">
+          <button class="button is-active">50/50</button>
+        </div>
+        <div class="control">
+          <button class="button">100/0</button>
+        </div>
+        <div class="control">
+          <button class="button">0/100</button>
+        </div>
+        <div class="control">
+          <button class="button">…</button>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Arlo</td>
+          <td>6,18€</td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td>Roxy</td>
+          <td>6,18€</td>
+          <td>50%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    (function() {
+      var categories = document.querySelectorAll(".categories button");
+      var splits = document.querySelectorAll(".splits button");
+      var clickHandler = (e, others) => {
+        others.forEach(btn => btn.classList.remove("is-active"));
+        e.target.classList.add("is-active");
+      };
+      categories.forEach(btn => btn.addEventListener("click", (e) => clickHandler(e, categories)));
+      splits.forEach(btn => btn.addEventListener("click", (e) => clickHandler(e, splits)));
+    })();
+  </script>
+</body>
+
+</html>
