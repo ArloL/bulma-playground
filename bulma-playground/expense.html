@@ -20,13 +20,16 @@
       margin: 1rem;
     }
 
-    .field.is-grouped.is-scrollable-x {
+    .buttons.is-scrollable-x {
       -webkit-overflow-scrolling: touch;
       max-width: 100%;
       overflow: auto;
       overflow-y: hidden;
       padding-bottom: calc(var(--bulma-field-block-spacing) / 2);
       margin-bottom: calc(var(--bulma-field-block-spacing) / 2);
+      mask-image: linear-gradient(to right, black 80%, transparent);
+      padding-right: 3rem;
+      flex-wrap: nowrap;
     }
   </style>
 </head>
@@ -44,58 +47,28 @@
           </select>
         </span>
       </p>
-      <p class="control">
+      <p class="control is-expanded">
         <input class="input" type="text" placeholder="0,00" inputmode="decimal" autofocus>
       </p>
     </div>
-    <div class="field is-grouped is-scrollable-x categories">
-      <div class="control">
-        <button class="button is-active">🍽️</button>
-      </div>
-      <div class="control">
-        <button class="button">🥐</button>
-      </div>
-      <div class="control">
-        <button class="button">🛒</button>
-      </div>
-      <div class="control">
-        <button class="button">🚂</button>
-      </div>
-      <div class="control">
-        <button class="button">🎟️</button>
-      </div>
-      <div class="control">
-        <button class="button">🏨</button>
-      </div>
-      <div class="control">
-        <button class="button">🧽</button>
-      </div>
-      <div class="control">
-        <button class="button">🚗</button>
-      </div>
-      <div class="control">
-        <button class="button">🧴</button>
-      </div>
-      <div class="control">
-        <button class="button">🪑</button>
-      </div>
-      <div class="control">
-        <button class="button">…</button>
-      </div>
+    <div class="buttons has-addons is-scrollable-x categories">
+      <button class="button is-success is-selected">🍽️</button>
+      <button class="button">🥐</button>
+      <button class="button">🛒</button>
+      <button class="button">🚂</button>
+      <button class="button">🎟️</button>
+      <button class="button">🏨</button>
+      <button class="button">🧽</button>
+      <button class="button">🚗</button>
+      <button class="button">🧴</button>
+      <button class="button">🪑</button>
+      <button class="button">…</button>
     </div>
-    <div class="field is-grouped is-scrollable-x splits">
-      <div class="control">
-        <button class="button is-active">50/50</button>
-      </div>
-      <div class="control">
-        <button class="button">100/0</button>
-      </div>
-      <div class="control">
-        <button class="button">0/100</button>
-      </div>
-      <div class="control">
-        <button class="button">…</button>
-      </div>
+    <div class="buttons has-addons is-scrollable-x splits">
+      <button class="button is-success is-selected">50/50</button>
+      <button class="button">100/0</button>
+      <button class="button">0/100</button>
+      <button class="button">…</button>
     </div>
     <table class="table is-fullwidth is-striped">
       <tbody>
@@ -111,14 +84,15 @@
         </tr>
       </tbody>
     </table>
+    <button class="button is-large is-fullwidth is-success">💾</button>
   </div>
   <script>
     (function () {
       var categories = document.querySelectorAll(".categories button");
       var splits = document.querySelectorAll(".splits button");
       var clickHandler = (e, others) => {
-        others.forEach(btn => btn.classList.remove("is-active"));
-        e.target.classList.add("is-active");
+        others.forEach(btn => btn.classList.remove("is-selected", "is-success"));
+        e.target.classList.add("is-selected", "is-success");
       };
       categories.forEach(btn => btn.addEventListener("click", (e) => clickHandler(e, categories)));
       splits.forEach(btn => btn.addEventListener("click", (e) => clickHandler(e, splits)));
