@@ -12,12 +12,21 @@
       /* Default global value */
       --bulma-body-font-size: 1.5rem;
       --bulma-size-normal: 1.5rem;
+      --bulma-field-block-spacing: 1.5rem;
+      --bulma-weight-medium: 400;
     }
-    .scroll-container {
-      overflow-x: auto;
-    }
+
     body {
       margin: 1rem;
+    }
+
+    .field.is-grouped.is-scrollable-x {
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      overflow: auto;
+      overflow-y: hidden;
+      padding-bottom: calc(var(--bulma-field-block-spacing) / 2);
+      margin-bottom: calc(var(--bulma-field-block-spacing) / 2);
     }
   </style>
 </head>
@@ -39,60 +48,56 @@
         <input class="input" type="text" placeholder="0,00" inputmode="decimal" autofocus>
       </p>
     </div>
-    <div class="field scroll-container">
-      <div class="field is-grouped categories">
-        <div class="control">
-          <button class="button is-active">🍽️</button>
-        </div>
-        <div class="control">
-          <button class="button">🥐</button>
-        </div>
-        <div class="control">
-          <button class="button">🛒</button>
-        </div>
-        <div class="control">
-          <button class="button">🚂</button>
-        </div>
-        <div class="control">
-          <button class="button">🎟️</button>
-        </div>
-        <div class="control">
-          <button class="button">🏨</button>
-        </div>
-        <div class="control">
-          <button class="button">🧽</button>
-        </div>
-        <div class="control">
-          <button class="button">🚗</button>
-        </div>
-        <div class="control">
-          <button class="button">🧴</button>
-        </div>
-        <div class="control">
-          <button class="button">🪑</button>
-        </div>
-        <div class="control">
-          <button class="button">…</button>
-        </div>
+    <div class="field is-grouped is-scrollable-x categories">
+      <div class="control">
+        <button class="button is-active">🍽️</button>
+      </div>
+      <div class="control">
+        <button class="button">🥐</button>
+      </div>
+      <div class="control">
+        <button class="button">🛒</button>
+      </div>
+      <div class="control">
+        <button class="button">🚂</button>
+      </div>
+      <div class="control">
+        <button class="button">🎟️</button>
+      </div>
+      <div class="control">
+        <button class="button">🏨</button>
+      </div>
+      <div class="control">
+        <button class="button">🧽</button>
+      </div>
+      <div class="control">
+        <button class="button">🚗</button>
+      </div>
+      <div class="control">
+        <button class="button">🧴</button>
+      </div>
+      <div class="control">
+        <button class="button">🪑</button>
+      </div>
+      <div class="control">
+        <button class="button">…</button>
       </div>
     </div>
-    <div class="field scroll-container">
-      <div class="field is-grouped splits">
-        <div class="control">
-          <button class="button is-active">50/50</button>
-        </div>
-        <div class="control">
-          <button class="button">100/0</button>
-        </div>
-        <div class="control">
-          <button class="button">0/100</button>
-        </div>
-        <div class="control">
-          <button class="button">…</button>
-        </div>
+    <div class="field is-grouped is-scrollable-x splits">
+      <div class="control">
+        <button class="button is-active">50/50</button>
+      </div>
+      <div class="control">
+        <button class="button">100/0</button>
+      </div>
+      <div class="control">
+        <button class="button">0/100</button>
+      </div>
+      <div class="control">
+        <button class="button">…</button>
       </div>
     </div>
-    <table class="table">
+    <table class="table is-fullwidth is-striped">
       <tbody>
         <tr>
           <td>Arlo</td>
@@ -108,7 +113,7 @@
     </table>
   </div>
   <script>
-    (function() {
+    (function () {
       var categories = document.querySelectorAll(".categories button");
       var splits = document.querySelectorAll(".splits button");
       var clickHandler = (e, others) => {
