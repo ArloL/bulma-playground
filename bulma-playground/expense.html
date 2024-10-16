@@ -90,11 +90,11 @@
         return Number.parseFloat(str);
       }
 
-      function formatNumber(number) {
+      function formatNumber(number, digits = 2) {
         if (isNaN(number)) {
           number = 0;
         }
-        return number.toFixed(2).toLocaleString();
+        return number.toFixed(digits).toLocaleString();
       }
 
       var categories = document.querySelectorAll(".categories button");
@@ -127,10 +127,12 @@
         var splits = [
           {
             "name": "Arlo",
-            "part": part
+            "part": part,
+            "percentage": part/total * 100
           }, {
             "name": "Roxy",
-            "part": total - part
+            "part": total - part,
+            "percentage": (total - part) / total * 100
           }
         ];
         var splitDetailsInnerHtml = "<tbody>";
@@ -139,6 +141,7 @@
             <tr>
               <td>${split.name}</td>
               <td class="has-text-right">${formatNumber(split.part)} ${currencySelect.value}</td>
+              <td class="has-text-right">${formatNumber(split.percentage, 0)}%</td>
             </tr>`;
         })
         splitDetailsInnerHtml += "</tbody>";
