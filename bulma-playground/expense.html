@@ -27,8 +27,8 @@
       overflow-y: hidden;
       padding-bottom: calc(var(--bulma-field-block-spacing) / 2);
       margin-bottom: calc(var(--bulma-field-block-spacing) / 2);
-      mask-image: linear-gradient(to right, black 80%, transparent);
-      padding-right: 3rem;
+      mask-image: linear-gradient(to right, black calc(100% - 6rem), transparent);
+      padding-right: 6rem;
       flex-wrap: nowrap;
     }
   </style>
@@ -41,7 +41,7 @@
     </div>
     <div class="field has-addons">
       <p class="control">
-        <span class="select">
+        <span class="select is-primary">
           <select>
             <option>€</option>
           </select>
@@ -71,24 +71,12 @@
       <button class="button">…</button>
     </div>
     <table class="table is-fullwidth is-striped">
-      <tbody>
-        <tr>
-          <td>Arlo</td>
-          <td>6,18€</td>
-          <td>50%</td>
-        </tr>
-        <tr>
-          <td>Roxy</td>
-          <td>6,18€</td>
-          <td>50%</td>
-        </tr>
-      </tbody>
     </table>
     <button class="button is-large is-fullwidth is-success" disabled>🍽️</button>
   </div>
   <script>
     (function () {
-      function cleanNumericInput(str) {
+      function customParseFloat(str) {
         const commas = (str.match(/,/g) || []).length;
         if (commas === 1) {
           str = str.replace(',', '.');
@@ -99,7 +87,14 @@
         if (dots > 1) {
           str = str.replace('.', '');
         }
-        return str;
+        return Number.parseFloat(str);
+      }
+
+      function formatNumber(number) {
+        if (isNaN(number)) {
+          number = 0;
+        }
+        return number.toFixed(2).toLocaleString();
       }
 
       var categories = document.querySelectorAll(".categories button");
@@ -120,40 +115,37 @@
       function updateTableAndButton() {
         var category = document.querySelector(".categories .is-selected").innerText;
         var splitValue = document.querySelector(".splits .is-selected").dataset.split;
-        var total = Number
-          .parseFloat(
-            cleanNumericInput(amountInput.value)
-          );
+        var total = customParseFloat(amountInput.value);
+        saveButton.innerText = `${category} ${formatNumber(total)} ${currencySelect.value}`;
         if (total > 0) {
           saveButton.removeAttribute("disabled");
-          saveButton.innerText = `${category} ${total.toFixed(2).toLocaleString()} ${currencySelect.value}`;
-
-          var part = Math.round(total / 100 * splitValue * 100) / 100;
-          var splits = [
-            {
-              "name": "Arlo",
-              "part": part
-            }, {
-              "name": "Roxy",
-              "part": total - part
-            }
-          ];
-          var splitDetailsInnerHtml = "<tbody>";
-          splits.forEach(split => {
-            splitDetailsInnerHtml += `
-            <tr>
-              <td>${split.name}</td>
-              <td>${split.part.toFixed(2).toLocaleString()} ${currencySelect.value}</td>
-            </tr>`;
-          })
-          splitDetailsInnerHtml += "</tbody>";
-          splitDetailsTable.innerHTML = splitDetailsInnerHtml;
         } else {
           saveButton.setAttribute("disabled", "disabled");
-          saveButton.innerText = `${category} … ${currencySelect.value}`;
         }
+
+        var part = Math.round(total / 100 * splitValue * 100) / 100;
+        var splits = [
+          {
+            "name": "Arlo",
+            "part": part
+          }, {
+            "name": "Roxy",
+            "part": total - part
+          }
+        ];
+        var splitDetailsInnerHtml = "<tbody>";
+        splits.forEach(split => {
+          splitDetailsInnerHtml += `
+            <tr>
+              <td>${split.name}</td>
+              <td class="has-text-right">${formatNumber(split.part)} ${currencySelect.value}</td>
+            </tr>`;
+        })
+        splitDetailsInnerHtml += "</tbody>";
+        splitDetailsTable.innerHTML = splitDetailsInnerHtml;
       }
       amountInput.addEventListener("input", updateTableAndButton);
+      updateTableAndButton();
     })();
   </script>
 </body>
