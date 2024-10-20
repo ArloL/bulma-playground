@@ -4,9 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Bulma!</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <title>Bulma</title>
   <link rel="icon" href="/bulma-playground/favicon.ico" />
+  <link rel="manifest" href="/bulma-playground/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="/bulma-playground/icon-192.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   <style>
     :root {
       /* Default global value */
@@ -135,7 +139,7 @@
           {
             "name": "Arlo",
             "part": part,
-            "percentage": part/total * 100
+            "percentage": part / total * 100
           }, {
             "name": "Roxy",
             "part": total - part,
@@ -156,6 +160,11 @@
       }
       amountInput.addEventListener("input", updateTableAndButton);
       updateTableAndButton();
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/bulma-playground/service-worker.js')
+          .then(() => console.log('Service Worker Registered'));
+      }
     })();
   </script>
 </body>
