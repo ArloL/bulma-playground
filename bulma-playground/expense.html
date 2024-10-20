@@ -20,6 +20,17 @@
       --bulma-weight-medium: 400;
     }
 
+    html,body {
+      scroll-behavior: auto;
+      overscroll-behavior: contain;
+      touch-action: none;
+    }
+
+    input, textarea, select {
+      -webkit-user-select: none; /* Prevent zoom on form input */
+      -webkit-touch-callout: none;
+    }
+
     body {
       margin: 1rem;
     }
