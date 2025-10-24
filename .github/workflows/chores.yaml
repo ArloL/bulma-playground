@@ -7,7 +7,7 @@ on:
     - chores
   schedule:
   - cron: '55 19 21 * *'
-
+permissions: {}
 concurrency: chores
 
 jobs:
@@ -49,13 +49,15 @@ jobs:
       pull-requests: write
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v5.0.0
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        persist-credentials: false
     - name: Chores
       run: |
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ArloL/chorito/HEAD/run-latest.sh)"
         git diff
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v7.0.8
+      uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
       with:
         commit-message: "chore: automated changes by chorito"
         branch: "chorito/patch"
